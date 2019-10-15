@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import './ContactForm.css';
 
@@ -27,5 +28,9 @@ ContactForm = reduxForm({
   // a unique name for the form
   form: 'contact',
 })(ContactForm);
+
+ContactForm = connect(state => ({
+  initialValues: state.initial,
+}))(ContactForm);
 
 export default ContactForm;
